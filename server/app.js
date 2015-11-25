@@ -1,10 +1,26 @@
 var http = require('http');
+var fs = require('fs');
 
-function onRequest(request, response) {
-    console.log('Request: ', request);
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write('Hello world!!');
+// 404 response.
+function send404Response(response) {
+    response.writeHead(404, {'Content-Type': 'text/plain'});
+    response.write('Error 404: Page not found');
     response.end();
+}
+
+// Handle a user request.
+function onRequest(request, response) {
+    // console.log('Request: ', request);
+    console.log('Request URL: ', request.url);
+
+    if (request.method === 'GET' && request.url === '/') {
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream('./index.html').pipe(response);
+    }
+    else {
+        send404Response(response);
+    }
+
 }
 
 console.log('Application initializing...');
