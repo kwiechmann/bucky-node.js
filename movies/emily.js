@@ -1,3 +1,5 @@
 var movies = require('./movies');
-movies.favMovie = 'Wuthering Heights';
-console.log("Emily's favorite movie is: " + movies.favMovie);
+
+var emilysMovies = movies ();
+emilysMovies.favMovie = 'Wuthering Heights';
+console.log("Emily's favorite movie is: " + emilysMovies.favMovie);

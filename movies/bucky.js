@@ -1,2 +1,4 @@
 var movies = require('./movies');
-console.log("Bucky's favorite movie is: " + movies.favMovie);
+
+var buckysMovies = movies ();
+console.log("Bucky's favorite movie is: " + buckysMovies.favMovie);

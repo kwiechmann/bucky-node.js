@@ -1,6 +1,6 @@
-// Ordering is important!
+// Ordering is important unless using an object factory.
 
-if (true) {
+if (false) {
     // Only Emily will have a fave: Wuthering Heights.
     require('./bucky');
     require('./emily');
